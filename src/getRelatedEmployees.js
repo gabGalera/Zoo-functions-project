@@ -26,7 +26,4 @@ function getRelatedEmployees(managerId) {
   }
 }
 
-console.log(getRelatedEmployees('fdb2543b-5662-46a7-badc-93d960fdc0a8'));
-
-console.log(isManager('fdb2543b-5662-46a7-badc-93d960fdc0a8'));
 module.exports = { isManager, getRelatedEmployees };
