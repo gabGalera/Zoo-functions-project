@@ -73,11 +73,11 @@ function getEmployeesCoverage(d) {
       return n[0];
     }
   } catch (e) {
-    throw e;
+    throw e.message;
   }
 }
 
 // console.log(validation({ name: ' ' }));
-console.log(getEmployeesCoverage({ id: 'Id inválido' }));
+// console.log(getEmployeesCoverage({ id: 'Id inválido' }));
 
 module.exports = getEmployeesCoverage;
