@@ -7,9 +7,9 @@ function getSchedule(st) {
   const obj = {};
   Object.keys(data.hours).forEach((e, i) => {
     obj[e] = { officeHour: `Open from ${op[i].open}am until ${op[i].close}pm`,
-      exhibition: data.species.map((e) => ({
-        ava: e.availability,
-        nome: e.name })).filter((el) => el.ava.includes(e)).map((el) => el.nome) };
+      exhibition: data.species.map((en) => ({
+        ava: en.availability,
+        nome: en.name })).filter((el) => el.ava.includes(e)).map((el) => el.nome) };
   });
   obj.Monday.exhibition = 'The zoo will be closed!';
   obj.Monday.officeHour = 'CLOSED';
