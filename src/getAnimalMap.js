@@ -1,5 +1,3 @@
-/* eslint-disable max-lines-per-function */
-/* eslint-disable complexity */
 const data = require('../data/zoo_data');
 
 const getLocation = () => {
@@ -145,12 +143,29 @@ const testsForUndefined = (options) => {
   return false;
 };
 
-const testsForMaleAndFemaleSorted = (options) => {
+const testsForMaleSorted = (options) => {
+  if (options.includeNames === true && options.sex === 'male' && options.sorted === true) {
+    return getMaleSorted();
+  }
+  return false;
+};
+
+const testsForFemaleSorted = (options) => {
   if (options.includeNames === true && options.sex === 'female' && options.sorted === true) {
     return getFemaleSorted();
   }
-  if (options.includeNames === true && options.sex === 'male' && options.sorted === true) {
-    return getMaleSorted();
+  return false;
+};
+
+const testsForMaleAndFemaleSorted = (options) => {
+  if (testsForFemaleSorted(options) !== false) {
+    return testsForFemaleSorted(options);
+  }
+  if (testsForMaleSorted(options) !== false) {
+    return testsForMaleSorted(options);
+  }
+  if (options.includeNames === true && options.sorted === true) {
+    return getSpeciesNamesSorted();
   }
   return false;
 };
@@ -172,9 +187,6 @@ function getAnimalMap(options) {
   }
   if (testsForMaleAndFemaleSorted(options) !== false) {
     return testsForMaleAndFemaleSorted(options);
-  }
-  if (options.includeNames === true && options.sorted === true) {
-    return getSpeciesNamesSorted();
   }
   if (testsForMaleAndFemale(options) !== false) {
     return testsForMaleAndFemale(options);
