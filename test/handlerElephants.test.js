@@ -24,4 +24,7 @@ describe('Testes da função HandlerElephants', () => {
   it('Testa se a idade média está correta', () => {
     expect(handlerElephants('averageAge')).toEqual(10.5);
   });
+  it('Testa se a função retorna os parâmetros de zoo_data', () => {
+    expect(handlerElephants('popularity')).toBe(5);
+  });
 });
