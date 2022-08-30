@@ -32,4 +32,10 @@ describe('Testes da função getOpeningHours', () => {
   it('Testa se lança exceção quando o horário é escrito errado.', () => {
     expect(() => { getOpeningHours('Thursday', 'C9:00-AM'); }).toThrow('The hour should represent a number');
   });
+  it('Testa se lança exceção quando a hora é maior do que 12.', () => {
+    expect(() => { getOpeningHours('Thursday', '15:00-AM'); }).toThrow('The hour must be between 0 and 12');
+  });
+  it('Testa se lança exceção quando os minutos são maiores do que 59.', () => {
+    expect(() => { getOpeningHours('Thursday', '09:60-AM'); }).toThrow('The minutes must be between 0 and 59');
+  });
 });
